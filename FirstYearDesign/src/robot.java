@@ -30,13 +30,13 @@ public class robot {
 	
 	public void moveForward(int time){ //rotates wheels forwards
 		
-		r.runMotor(RXTXRobot.MOTOR1, time, RXTXRobot.MOTOR2, -time, 0);  
+		r.runMotor(RXTXRobot.MOTOR1, -255, RXTXRobot.MOTOR2, 255, time);  
 		
 	}
 	
 	public void moveBackward(int time){ //rotates wheels backwards
 		
-		r.runMotor(RXTXRobot.MOTOR1, -time, RXTXRobot.MOTOR2, time, 0); 
+		r.runMotor(RXTXRobot.MOTOR1, 255, RXTXRobot.MOTOR2, -255, time); 
 		 	
 	}
 	

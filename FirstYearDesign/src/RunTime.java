@@ -9,7 +9,7 @@ public class RunTime {
 		
 		
 		if(pingVal > 100){
-			myRobot.moveForward(100);
+			myRobot.moveForward(0);
 		}
 		
 	
