@@ -3,7 +3,7 @@ import javax.xml.bind.ValidationEvent;
 import rxtxrobot.AnalogPin;
 import rxtxrobot.ArduinoNano;
 import rxtxrobot.RXTXRobot;
-//testing git hub
+
 public class robot {
 	RXTXRobot r;
 	final private static int PING_PIN = 12; 
