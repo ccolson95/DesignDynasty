@@ -12,12 +12,7 @@ public class RunTime {
 			myRobot.moveForward(100);
 		}
 		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		
