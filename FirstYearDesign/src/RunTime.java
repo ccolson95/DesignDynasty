@@ -15,8 +15,6 @@ public class RunTime {
 			mechRobot.moveForward(0, 0); //sends a speed of 0 to stop the robot
 		}
 		
-	
-		
 		mechRobot.close(); //closing connection
 		//envRobotclose(); //closing connection
 	}
