@@ -28,15 +28,35 @@ public class Mech {
 			
 		}
 		
-		//rotates wheels forwards
-		public void moveForward(int time, int speed){ //accepts an int for time and speed, 
+		/*rotates tracks forward
+		 * accepts following variables: 
+		 * int time: duration of run
+		 * int speed: ticks on encoded motors 
+		 * double distanceBuffer: distance from the wall
+		 * returns nothing
+		 */
+		public void moveForward(int time, int speed, double distanceBuffer){ 
+			//get pingVal distance 
+			int pingVal = checkDistance(); 	
 			
-			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed, time);  
+			//ping distance in centimeters
+			while(pingVal > distanceBuffer){ 		
+				r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed, time);  
+			}
+			
+			//stop robot
+			r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
 			
 		}
 		
-		//rotates wheels backwards
-		public void moveBackward(int time, int speed){ //accepts an int for time and speed
+		/*rotates tracks backward
+		 * accepts following variables: 
+		 * int time: duration of run
+		 * int speed: ticks on encoded motors 
+		 * ----------double distanceBuffer: distance from the wall
+		 * returns nothing
+		 */
+		public void moveBackward(int time, int speed, float distance ){ 
 			
 			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
 			 	
