@@ -14,11 +14,6 @@ public class Env {
 			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
 			r.connect(); 
 		}
-		
-		public void close(){
-			r.close(); 
-		}
-		
 
 		public void checkTurbidity(){
 			
@@ -30,5 +25,10 @@ public class Env {
 			
 			
 			
+		}
+		
+		
+		public void close(){
+			r.close(); 
 		}
 }
