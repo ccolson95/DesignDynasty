@@ -3,18 +3,22 @@ import java.awt.Robot;
 public class RunTime {
 
 	public static void main(String[] args){
-		robot myRobot = new robot(); //creates a new robot object
+		Mech mechRobot = new Mech(); //creates a new Mechanical robot system
+		//Env envRobot = new Env(); // creates a new Environmental robot system
 		
-		int pingVal = myRobot.checkDistance(); //get pingVal distance
+		//begin search for water
+		
+		int pingVal = mechRobot.checkDistance(); //get pingVal distance
 		
 		if(pingVal > 10){ //ping distance in centimeters
-			myRobot.moveForward(0, 255); //sends time then speed
-			myRobot.moveForward(0, 0); //sends a speed of 0 to stop the robot
+			mechRobot.moveForward(0, 255); //sends time then speed
+			mechRobot.moveForward(0, 0); //sends a speed of 0 to stop the robot
 		}
 		
 	
 		
-		myRobot.close();
+		mechRobot.close(); //closing connection
+		//envRobotclose(); //closing connection
 	}
 	
 	
