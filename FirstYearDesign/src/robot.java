@@ -14,12 +14,11 @@ public class robot {
 		r.connect(); 
 	}
 	
-	
+	//reads the ping sensor value
 	public int checkDistance(){
 		 	
 		int val = 0;
 		for (int x = 0; x < 10; ++x) { 
-			//Read the ping sensor value, which is connected to pin 12 
 			val = r.getPing(PING_PIN);
 			r.sleep(300); 
 		} 
@@ -28,19 +27,22 @@ public class robot {
 		
 	}
 	
-	public void moveForward(int time){ //rotates wheels forwards
+	//rotates wheels forwards
+	public void moveForward(int time, int speed){ //accepts an int for time and speed
 		
-		r.runMotor(RXTXRobot.MOTOR1, -255, RXTXRobot.MOTOR2, 255, time);  
+		r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed, time);  
 		
 	}
 	
-	public void moveBackward(int time){ //rotates wheels backwards
+	//rotates wheels backwards
+	public void moveBackward(int time, int speed){ //accepts an int for time and speed
 		
-		r.runMotor(RXTXRobot.MOTOR1, 255, RXTXRobot.MOTOR2, -255, time); 
+		r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
 		 	
 	}
 	
-	public void turnRight(int time){ //turns robot right
+	//turns robot right
+	public void turnRight(int time){ 
 		
 		r.runMotor(RXTXRobot.MOTOR1, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
 		// Program stops until the command above is completed (5 seconds) 
@@ -48,7 +50,8 @@ public class robot {
 		
 	}
 	
-	public void turnLeft(int time){ //turns robot left
+	//turns robot left
+	public void turnLeft(int time){ 
 		
 		r.runMotor(RXTXRobot.MOTOR2, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
 		// Program stops until the command above is completed (5 seconds) 
