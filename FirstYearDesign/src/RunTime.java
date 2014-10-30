@@ -3,7 +3,7 @@ import java.awt.Robot;
 public class RunTime {
 
 	public static void main(String[] args){
-		robot myRobot = new robot(); //creates a new robot object
+		Mech myRobot = new Mech(); //creates a new robot object
 		
 		int pingVal = myRobot.checkDistance(); //get pingVal distance
 		
