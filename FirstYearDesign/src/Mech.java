@@ -29,7 +29,7 @@ public class Mech {
 		}
 		
 		//rotates wheels forwards
-		public void moveForward(int time, int speed){ //accepts an int for time and speed
+		public void moveForward(int time, int speed){ //accepts an int for time and speed, 
 			
 			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed, time);  
 			
