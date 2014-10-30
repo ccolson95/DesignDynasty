@@ -9,14 +9,10 @@ public class RunTime {
 		
 		if(pingVal > 10){ //ping distance in centimeters
 			myRobot.moveForward(0, 255); //sends time then speed
-			myRobot.moveForward(0, 0);
+			myRobot.moveForward(0, 0); //sends a speed of 0 to stop the robot
 		}
 		
 	
-		
-		
-		
-		
 		
 		myRobot.close();
 	}
