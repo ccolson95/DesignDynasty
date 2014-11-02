@@ -41,11 +41,11 @@ public class RunTime2 {
 		r.close();
 	}
 
-	public void findWater(RXTXRobot r, int s){
+	public void findWater(RXTXRobot r, int s){ //find water source
 		boolean a=false;
 		r.moveServo(r.SERVO1, 90);
 		r.runMotor(r.MOTOR1, (s-5), r.MOTOR2, -s, 0);
-		while (a==false){
+		while (a == false){
 			int b=r.getPing();
 			if (b<27){
 				r.runMotor(r.MOTOR1, 0, r.MOTOR2, 0, 0);

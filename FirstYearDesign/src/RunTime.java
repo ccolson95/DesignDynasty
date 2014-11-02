@@ -20,8 +20,11 @@ public class RunTime {
 		//raise sensor claw out of water source using servo
 		mechRobot.raiseSensor();
 		
-		//analyze water source to determine what materials are needed
+		//analyze water source to determine what materials are needed (how many ping pong balls to dispense)
+		envRobot.determineMaterials();
 		
+		//move away from the water source
+		mechRobot.moveBackward(0, 255, distance);
 			
 	
 		

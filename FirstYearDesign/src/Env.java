@@ -21,16 +21,18 @@ public class Env {
 		public void checkTurbidity(){
 			
 			
-			
 		}
 		
 		
 		public void checkSalinity(){
 			
 			
-			
 		}
 		
+		public void determineMaterials(){
+			
+			
+		}
 		
 		public void close(){
 			r.close(); 

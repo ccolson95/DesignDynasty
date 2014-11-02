@@ -53,7 +53,7 @@ public class Mech {
 		 * ----------double distanceBuffer: distance from the wall
 		 * returns nothing
 		 */
-		public void moveBackward(int time, int speed, float distance ){ 
+		public void moveBackward(int time, int speed, double distance ){ 
 			
 			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
 			 	
