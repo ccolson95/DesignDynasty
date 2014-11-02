@@ -95,7 +95,7 @@ public class Mech {
 			r.attachServo(RXTXRobot.SERVO1, 9); //Connect the servos to the Arduino 
 			r.attachServo(RXTXRobot.SERVO2, 10); 
 			r.attachServo(RXTXRobot.SERVO3, 11); 
-			r.moveAllServos(angle1, angle2, 0); // Move Servo 1 to position 20, Servo 2 to position 170, and Servo 3 to position 0. 
+			r.moveAllServos(angle1,150,150); // Move Servo 1 to position 20, Servo 2 to position 170, and Servo 3 to position 0. 
 			
 		}
 		

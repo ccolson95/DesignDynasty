@@ -22,10 +22,27 @@ public class RunTime {
 		
 		//analyze water source to determine what materials are needed (how many ping pong balls to dispense)
 		envRobot.determineMaterials();
-		
-		//move away from the water source
-		mechRobot.moveBackward(0, 255, distance);
 			
+		//locate first ping pong ball station
+		mechRobot.moveBackward(0, 255, distance);
+		mechRobot.turnLeft(time);
+		mechRobot.moveForward(0, 255, 12.7);
+		
+		//use claw to get ping pong balls
+		
+		
+		//locate second ping pong ball station
+		mechRobot.moveBackward(0, 255, distance);
+		mechRobot.turnLeft(time);
+		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
+		mechRobot.turnRight(time);
+		
+		//use claw to get ping pong balls
+		
+		//locate third ping pong ball station
+	
+		
+		//locate fourth ping pong ball station
 	
 		
 		mechRobot.close(); //closing connection
