@@ -17,15 +17,12 @@ public class Mech {
 		
 		//reads the ping sensor value
 		public int checkDistance(){
-			 	
 			int val = 0;
 			for (int x = 0; x < 10; ++x) { 
 				val = r.getPing(PING_PIN);
 				r.sleep(300); 
 			} 
-			
 			return val;  
-			
 		}
 		
 		/*rotates tracks forward
