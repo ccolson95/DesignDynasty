@@ -83,7 +83,7 @@ public class RunTime2 {
 		r.moveServo(r.SERVO1, 90);
 	}
 
-	public double testWaterTurbidity(RXTXRobot r){
+	public double testWaterTurbidity(RXTXRobot r){ //this should work for us
 		r.sleep(2000);
 		int f=0;
 		for (int x=0; x<3; x++){
@@ -106,7 +106,7 @@ public class RunTime2 {
 		}
 		f=f/3;
 		double h=(f-1046.6)/(-1.5292);
-		System.out.print("Turbidity equals: 115");
+
 		return h;
 	}
 	public double testWaterSalinity(RXTXRobot r){
@@ -123,7 +123,7 @@ public class RunTime2 {
 		for (int x=0; x<2;x++){
 			if (x>0){
 				for (int y=0;y<10;y++){
-					int d=r.getConductivity();
+					int d=r.getConductivity();  //use this for multiple different waters with different salinity values, plot the the values in excel, find a best fit line, use that data to make our own salinity equation
 					System.out.println(d);
 					if (d>400 & d<600){
 						Salinity.add(d);
@@ -154,7 +154,7 @@ public class RunTime2 {
 			}
 			f=(double)e/19;
 		}*/
-		System.out.println(" Salinity equals: .8 ms/cm");
+		
 		return f;
 	}
 
@@ -194,7 +194,7 @@ public class RunTime2 {
 		}
 	}
 
-	public void dispenseOdd(RXTXRobot r, int a){
+	public void dispenseOdd(RXTXRobot r, int a){ 
 		if (a>0){
 		for (int x=0; x<a; x++){ //use for all dispense sequences
 			boolean b=true;/*
@@ -374,7 +374,7 @@ public class RunTime2 {
 		r.runEncodedMotor(r.MOTOR1, -170, 90, r.MOTOR2, 210, 90);
 	}
 
-	public void findTheBridge(RXTXRobot r){
+	public void findTheBridge(RXTXRobot r){ 
 		r.moveServo(r.SERVO3, 170);
 		r.sleep(1000);
 		r.runEncodedMotor(r.MOTOR1, 250, 215, r.MOTOR2, 250, 215);
