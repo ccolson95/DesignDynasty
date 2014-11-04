@@ -40,10 +40,16 @@ public class RunTime {
 		//use claw to get ping pong balls
 		
 		//locate third ping pong ball station
-	
+		mechRobot.moveBackward(0, 255, distance);
+		mechRobot.turnLeft(time);
+		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
+		mechRobot.turnRight(time);
 		
 		//locate fourth ping pong ball station
-	
+		mechRobot.moveBackward(0, 255, distance);
+		mechRobot.turnLeft(time);
+		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
+		mechRobot.turnRight(time);
 		
 		mechRobot.close(); //closing connection
 		//envRobotclose(); //closing connection
