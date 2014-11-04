@@ -41,9 +41,7 @@ public class Env {
 			}
 			f=f/3;
 			double h=(f-1046.6)/(-1.5292);
-
 			return h;
-			
 		}
 		
 		
