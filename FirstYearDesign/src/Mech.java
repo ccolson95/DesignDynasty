@@ -73,6 +73,12 @@ public class Mech {
 			
 		}
 		
+		//turns robot 180 degrees using ticks
+		public void turn180(){
+			
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 320, RXTXRobot.MOTOR2, 255, 320); //speed, ticks
+		}
+		
 		//moves arm to knock out even number of ping pong balls
 		public void dispenseEven(){
 			
