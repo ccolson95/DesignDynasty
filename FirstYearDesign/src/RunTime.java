@@ -1,4 +1,4 @@
-import java.awt.Robot;
+/*import java.awt.Robot;
 
 public class RunTime {
 
@@ -67,5 +67,5 @@ public class RunTime {
 		
 	}
 }	
-	
+	*/
 

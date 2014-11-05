@@ -89,28 +89,6 @@ public class Mech {
 			
 		}
 		
-		//samples from FYD
-		public void moveBothServos(int angle1, int angle2){
-			 
-			r.attachServo(RXTXRobot.SERVO1, 9); //Connect the servos to the Arduino 
-			r.attachServo(RXTXRobot.SERVO2, 10); 
-			r.attachServo(RXTXRobot.SERVO3, 11); 
-			r.moveAllServos(angle1,150,150); // Move Servo 1 to position 20, Servo 2 to position 170, and Servo 3 to position 0. 
-			
-		}
-		
-		public void openClaw(){
-			
-			//servo code
-			
-		}
-		
-		public void closeClaw(){
-			
-			//servo code
-			
-		}
-		
 		public void swingClaw(){
 			
 			//servo code
