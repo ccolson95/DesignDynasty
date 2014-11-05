@@ -1,4 +1,4 @@
-/*import java.awt.Robot;
+import java.awt.Robot;
 
 public class RunTime {
 
@@ -8,7 +8,7 @@ public class RunTime {
 		
 		//find water
 		//use ping sensor to locate the distance to the wall, needs to be 12.7 centimeters (5 inches) from the wall
-		mechRobot.moveForward(0, 255, 12.7); //sends time then speed, 0 denotes infinite time
+		mechRobot.moveForward(0, 255, 12.7); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
 		//lower sensor claw into water source using servo
 		mechRobot.lowerSensor();
@@ -28,9 +28,9 @@ public class RunTime {
 		mechRobot.turnLeft(time);
 		mechRobot.moveForward(0, 255, 12.7);
 		
-		//use claw to get ping pong balls
+		//swing claw to knock out ping pong balls into bucket
+		//use if statements to choose between using dispenseEven or dispenseOdd functions
 		
-		//dispense ping pong balls into bucket
 		
 		//locate second ping pong ball station
 		mechRobot.moveBackward(0, 255, distance);
@@ -38,9 +38,9 @@ public class RunTime {
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
 		mechRobot.turnRight(time);
 		
-		//use claw to get ping pong balls
-		
-		//dispense ping pong balls into bucket
+		//swing claw to knock out ping pong balls into bucket
+		//use if statements to choose between using dispenseEven or dispenseOdd functions
+
 		
 		//locate third ping pong ball station
 		mechRobot.moveBackward(0, 255, distance);
@@ -48,9 +48,9 @@ public class RunTime {
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
 		mechRobot.turnRight(time);
 		
-		//use claw to get ping pong balls
-		
-		//dispense ping pong balls into bucket
+		//swing claw to knock out ping pong balls into bucket
+		//use if statements to choose between using dispenseEven or dispenseOdd functions
+
 		
 		//locate fourth ping pong ball station
 		mechRobot.moveBackward(0, 255, distance);
@@ -58,12 +58,12 @@ public class RunTime {
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
 		mechRobot.turnRight(time);
 		
-		//use claw to get ping pong balls
-		
-		//dispense ping pong balls into bucket
+		//swing claw to knock out ping pong balls into bucket
+		//use if statements to choose between using dispenseEven or dispenseOdd functions
+
 		
 		mechRobot.close(); //closing connection
-		//envRobotclose(); //closing connection
+		envRobotclose(); //closing connection
 		
 	}
 }	

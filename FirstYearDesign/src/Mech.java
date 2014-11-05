@@ -77,21 +77,25 @@ public class Mech {
 			
 		}
 		
-		//sample from FYD
-		public void moveServo(){
+		//moves arm to knock out even number of ping pong balls
+		public void dispenseEven(){
 			
 			r.setVerbose(true); // Turn on debugging messages 
-			r.attachServo(RXTXRobot.SERVO1, 7); //Connect the servos to the Arduino 
-			//r.attachServo(RXTXRobot.SERVO2, 7); 
-			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to location 30 
+			r.attachServo(RXTXRobot.SERVO1, 8); //Connect the servos to the Arduino 
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
 			r.sleep(10000);
-			r.moveServo(RXTXRobot.SERVO2, 170); // Move Servo 2 to location 170 
+			r.close(); //this makes the servo go back to 90 degrees and dispensing another ping pong ball 
 			
 		}
 		
-		public void swingClaw(){
+		//moves arm to knock out odd number of ping pong balls
+		public void dispenseOdd(){
 			
-			//servo code
+			r.setVerbose(true); // Turn on debugging messages 
+			r.attachServo(RXTXRobot.SERVO1, 8); //Connect the servos to the Arduino 
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+			r.sleep(10000);
+			//no close here or it would knock out another ping pong ball
 			
 		}
 		

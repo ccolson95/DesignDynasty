@@ -12,6 +12,5 @@ public class MoveServo {
 		//r.attachServo(RXTXRobot.SERVO2, 7); 
 		r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to location 30 
 		r.sleep(1000);
-		r.close(); 
 	} 
 }

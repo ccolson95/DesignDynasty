@@ -18,30 +18,17 @@ public class Env {
 			r.connect(); 
 		}
 
-		public double checkTurbidity(){
-			r.sleep(2000);
-			int f=0;
-			for (int x=0; x<3; x++){
-				ArrayList<Integer> Turbidity=new ArrayList<Integer>();
-				int e=0;
-				for (int a=0; a<30; a++){
-					r.refreshAnalogPins();
-					AnalogPin turbidity=r.getAnalogPin(0);
-					int d= turbidity.getValue();
-					if (d<1000){
-						Turbidity.add(d);
-					}
-				}
-				for (int a=0;a<Turbidity.size();a++){
-					e=e+Turbidity.get(a);
-					
-				}
-				e=e/Turbidity.size();
-				f=f+e;
-			}
-			f=f/3;
-			double h=(f-1046.6)/(-1.5292);
-			return h;
+		public void checkTurbidity(){
+	
+			for (int x=0; x <= 10 ; ++x) 
+			{ 
+				AnalogPin temp = r.getAnalogPin(1); 
+				r.sleep(100);
+				r.refreshAnalogPins(); // Cache the Analog pin information 
+				System.out.println("Sensor " + x + " has value: " + temp.getValue());  //prints voltage
+			} 
+		
+			
 		}
 		
 		
