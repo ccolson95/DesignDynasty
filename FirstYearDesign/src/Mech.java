@@ -53,27 +53,23 @@ public class Mech {
 		 * ----------double distanceBuffer: distance from the wall
 		 * returns nothing
 		 */
-		public void moveBackward(int time, int speed, double distance ){ 
+		public void moveBackward(int time, int speed, double distanceBuffer ){ 
 			
 			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
 			 	
 		}
 		
-		//turns robot right
-		public void turnRight(int time){ 
+		//turns robot right using ticks
+		public void turnRight(){ 
 			
-			r.runMotor(RXTXRobot.MOTOR1, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
-			// Program stops until the command above is completed (5 seconds) 
-			r.runMotor(RXTXRobot.MOTOR1, -125, time); // Run motor 1 backward (speed of 125) for 3 seconds 
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 160, RXTXRobot.MOTOR2, 255, 160); //speed, ticks
 			
 		}
 		
-		//turns robot left
-		public void turnLeft(int time){ 
+		//turns robot left using ticks
+		public void turnLeft(){ 
 			
-			r.runMotor(RXTXRobot.MOTOR2, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
-			// Program stops until the command above is completed (5 seconds) 
-			r.runMotor(RXTXRobot.MOTOR2, -125, time); // Run motor 1 backward (speed of 125) for 3 seconds 
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -255, 160, RXTXRobot.MOTOR2, -255, 160); //speed, ticks
 			
 		}
 		

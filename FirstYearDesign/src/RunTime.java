@@ -26,7 +26,7 @@ public class RunTime {
 			
 		//locate first ping pong ball station
 		mechRobot.moveBackward(0, 255, distance);
-		mechRobot.turnLeft(time);
+		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, 12.7);
 		
 		//swing claw to knock out ping pong balls into bucket
@@ -34,30 +34,30 @@ public class RunTime {
 		
 		
 		//locate second ping pong ball station
-		mechRobot.moveBackward(0, 255, distance);
-		mechRobot.turnLeft(time);
+		mechRobot.moveBackward(0, 255, distance); //NEED TO MEASURE DISTANCE BUFFER
+		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
-		mechRobot.turnRight(time);
+		mechRobot.turnRight();
 		
 		//swing claw to knock out ping pong balls into bucket
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
 
 		
 		//locate third ping pong ball station
-		mechRobot.moveBackward(0, 255, distance);
-		mechRobot.turnLeft(time);
+		mechRobot.moveBackward(0, 255, distance);//NEED TO MEASURE DISTANCE BUFFER
+		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
-		mechRobot.turnRight(time);
+		mechRobot.turnRight();
 		
 		//swing claw to knock out ping pong balls into bucket
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
 
 		
 		//locate fourth ping pong ball station
-		mechRobot.moveBackward(0, 255, distance);
-		mechRobot.turnLeft(time);
+		mechRobot.moveBackward(0, 255, distance);//NEED TO MEASURE DISTANCE BUFFER
+		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
-		mechRobot.turnRight(time);
+		mechRobot.turnRight();
 		
 		//swing claw to knock out ping pong balls into bucket
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
