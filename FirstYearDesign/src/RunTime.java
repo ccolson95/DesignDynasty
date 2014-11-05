@@ -21,7 +21,8 @@ public class RunTime {
 		mechRobot.raiseSensor();
 		
 		//analyze water source to determine what materials are needed (how many ping pong balls to dispense)
-		envRobot.determineMaterials();
+		envRobot.checkSalinity();
+		envRobot.checkTurbidity();
 			
 		//locate first ping pong ball station
 		mechRobot.moveBackward(0, 255, distance);
@@ -63,7 +64,7 @@ public class RunTime {
 
 		
 		mechRobot.close(); //closing connection
-		envRobotclose(); //closing connection
+		envRobot.close(); //closing connection
 		
 	}
 }	
