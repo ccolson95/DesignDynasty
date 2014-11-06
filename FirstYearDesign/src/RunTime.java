@@ -8,13 +8,13 @@ public class RunTime
 		Mech mechRobot = new Mech(); //creates a new Mechanical robot system
 		Env envRobot = new Env(); // creates a new Environmental robot system
 		
-		/*
+		
 		//find water
 		//use ping sensor to locate the distance to the wall, needs to be 12.7 centimeters (5 inches) from the wall
 		mechRobot.moveForward(0, 255, 12.7); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
 		//lower sensor claw into water source using servo
-		mechRobot.lowerSensor();
+		/*mechRobot.lowerSensor();
 		
 		//test water for salinity and turbidity
 		envRobot.checkSalinity();
@@ -66,7 +66,7 @@ public class RunTime
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
 		*/
 		
-		mechRobot.turn180();
+		//mechRobot.turn180();
 		
 		mechRobot.close(); //closing connection
 		envRobot.close(); //closing connection

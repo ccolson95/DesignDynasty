@@ -3,6 +3,8 @@ import rxtxrobot.*;
 public class GetPing {
 	
 	final private static int PING_PIN = 12; 
+	final private static int PING_PIN2 = 11; 
+
 
 	public static void main(String[] args) 
 	{ 
@@ -13,6 +15,7 @@ public class GetPing {
 		{ 
 			//Read the ping sensor value, which is connected to pin 12 
 			System.out.println("Response: " + r.getPing(PING_PIN) + " cm"); 
+			//System.out.println("Response: " + r.getPing(PING_PIN2) + " cm"); 
 			r.sleep(300); 
 		} 
 		r.close(); 

@@ -10,7 +10,7 @@ public class MoveServo {
 		r.connect(); 
 		r.attachServo(RXTXRobot.SERVO1, 8); //Connect the servos to the Arduino 
 		//r.attachServo(RXTXRobot.SERVO2, 7); 
-		r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to location 30 
+		r.moveServo(RXTXRobot.SERVO1, 90); // Move Servo 1 to location 30 
 		r.sleep(1000);
 	} 
 }
