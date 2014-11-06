@@ -9,7 +9,7 @@ public class RunBothEncodedMotors {
 		r.connect(); 
 		//We don't have to attach anything because these motors are 
 		//attached by default 
-		r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 500, RXTXRobot.MOTOR2, 255, 500); 
+		r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 1000, RXTXRobot.MOTOR2, -255, 1000); //speed, ticks
 		r.close(); 
 	} 
 	

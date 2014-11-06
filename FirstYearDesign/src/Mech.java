@@ -11,92 +11,95 @@ public class Mech {
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 410"); 
 			r.connect(); 
 		}
 		
 		//reads the ping sensor value
 		public int checkDistance(){
-			 	
-			int val = 0;
+			int valTotal = 0;
 			for (int x = 0; x < 10; ++x) { 
-				val = r.getPing(PING_PIN);
-				r.sleep(300); 
+				valTotal += r.getPing(PING_PIN);
+				r.sleep(5); 
 			} 
+			return valTotal/10;  
+		}
+		
+		/*rotates tracks forward
+		 * accepts following variables: 
+		 * int time: duration of run
+		 * int speed: ticks on encoded motors 
+		 * double distanceBuffer: distance from the wall
+		 * returns nothing
+		 */
+		public void moveForward(int time, int speed, double distanceBuffer){
+			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time);
+			//get pingVal distance 
+			int pingVal = checkDistance(); 	
+			System.out.println(pingVal);
+			//ping distance in centimeters
+			while(pingVal > distanceBuffer){ 		
+				pingVal = checkDistance();
+				System.out.println(pingVal);
+			}
 			
-			return val;  
+			//stop robot
+			r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
 			
 		}
 		
-		//rotates wheels forwards
-		public void moveForward(int time, int speed){ //accepts an int for time and speed
-			
-			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed, time);  
-			
-		}
-		
-		//rotates wheels backwards
-		public void moveBackward(int time, int speed){ //accepts an int for time and speed
+		/*rotates tracks backward
+		 * accepts following variables: 
+		 * int time: duration of run
+		 * int speed: ticks on encoded motors 
+		 * ----------double distanceBuffer: distance from the wall
+		 * returns nothing
+		 */
+		public void moveBackward(int time, int speed, double distanceBuffer ){ 
 			
 			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
 			 	
 		}
 		
-		//turns robot right
-		public void turnRight(int time){ 
+		//turns robot right using ticks
+		public void turnRight(){ 
 			
-			r.runMotor(RXTXRobot.MOTOR1, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
-			// Program stops until the command above is completed (5 seconds) 
-			r.runMotor(RXTXRobot.MOTOR1, -125, time); // Run motor 1 backward (speed of 125) for 3 seconds 
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 160, RXTXRobot.MOTOR2, 255, 160); //speed, ticks
 			
 		}
 		
-		//turns robot left
-		public void turnLeft(int time){ 
+		//turns robot left using ticks
+		public void turnLeft(){ 
 			
-			r.runMotor(RXTXRobot.MOTOR2, 125, time); // Run motor 1 forward (speed of 125) for 5 seconds 
-			// Program stops until the command above is completed (5 seconds) 
-			r.runMotor(RXTXRobot.MOTOR2, -125, time); // Run motor 1 backward (speed of 125) for 3 seconds 
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -255, 160, RXTXRobot.MOTOR2, -255, 160); //speed, ticks
 			
 		}
 		
-		//sample from FYD
-		public void moveServo(){
+		//turns robot 180 degrees using ticks
+		public void turn180(){
+			
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 320, RXTXRobot.MOTOR2, 255, 320); //speed, ticks
+		}
+		
+		//moves arm to knock out even number of ping pong balls
+		public void dispenseEven(){
 			
 			r.setVerbose(true); // Turn on debugging messages 
-			r.attachServo(RXTXRobot.SERVO1, 7); //Connect the servos to the Arduino 
-			//r.attachServo(RXTXRobot.SERVO2, 7); 
-			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to location 30 
+			r.attachServo(RXTXRobot.SERVO1, 8); //Connect the servos to the Arduino 
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
 			r.sleep(10000);
-			r.moveServo(RXTXRobot.SERVO2, 170); // Move Servo 2 to location 170 
+			r.close(); //this makes the servo go back to 90 degrees and dispensing another ping pong ball 
 			
 		}
 		
-		//samples from FYD
-		public void moveBothServos(int angle1, int angle2){
-			 
-			r.attachServo(RXTXRobot.SERVO1, 9); //Connect the servos to the Arduino 
-			r.attachServo(RXTXRobot.SERVO2, 10); 
-			r.attachServo(RXTXRobot.SERVO3, 11); 
-			r.moveAllServos(angle1, angle2, 0); // Move Servo 1 to position 20, Servo 2 to position 170, and Servo 3 to position 0. 
+		//moves arm to knock out odd number of ping pong balls
+		public void dispenseOdd(){
 			
-		}
-		
-		public void openClaw(){
-			
-			//servo code
-			
-		}
-		
-		public void closeClaw(){
-			
-			//servo code
-			
-		}
-		
-		public void swingClaw(){
-			
-			//servo code
+			r.setVerbose(true); // Turn on debugging messages 
+			r.attachServo(RXTXRobot.SERVO1, 8); //Connect the servos to the Arduino 
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+			r.sleep(10000);
+			//no close here or it would knock out another ping pong ball
 			
 		}
 		
