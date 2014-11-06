@@ -11,7 +11,7 @@ public class Mech {
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 410"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
 			r.connect(); 
 		}
 		

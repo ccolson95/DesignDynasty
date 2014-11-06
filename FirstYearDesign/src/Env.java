@@ -14,7 +14,7 @@ public class Env {
 		
 		public Env(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 640"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1420"); 
 			r.connect(); 
 		}
 
@@ -53,4 +53,37 @@ public class Env {
 		public void close(){
 			r.close(); 
 		}
+		
+		// gets code difference in order to find conductivity
+		public int getConductivity(){
+			return r.getConductivity();	
+		}
+		
+		public double testWaterTurbidity(){ //this should work for us
+			r.sleep(2000);
+			int f=0;
+			for (int x=0; x<3; x++){
+				ArrayList<Integer> Turbidity=new ArrayList<Integer>();
+				int e=0;
+				for (int a=0; a<30; a++){
+					r.refreshAnalogPins();
+					AnalogPin turbidity=r.getAnalogPin(0);
+					int d= turbidity.getValue();
+					if (d<1000){
+						Turbidity.add(d);
+					}
+				}
+				for (int a=0;a<Turbidity.size();a++){
+					e=e+Turbidity.get(a);
+					
+				}
+				e=e/Turbidity.size();
+				f=f+e;
+			}
+			f=f/3;
+			double h=(f-1046.6)/(-1.5292);
+
+			return h;
+		}
+		
 }
