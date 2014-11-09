@@ -7,11 +7,11 @@ import rxtxrobot.ArduinoNano;
 public class Mech {
 
 		RXTXRobot r;
-		final private static int PING_PIN = 12; 
+		final private static int PING_PIN = 11; 
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1420"); 
 			r.connect(); 
 		}
 		
@@ -33,7 +33,7 @@ public class Mech {
 		 * returns nothing
 		 */
 		public void moveForward(int time, int speed, double distanceBuffer){
-			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time);
+			r.runMotor(RXTXRobot.MOTOR1, speed-28, RXTXRobot.MOTOR2, -speed, time);
 			//get pingVal distance 
 			int pingVal = checkDistance(); 	
 			System.out.println(pingVal);
