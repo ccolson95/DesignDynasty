@@ -10,7 +10,7 @@ public class RunTime
 		
 		//find water
 		//use ping sensor to locate the distance to the wall, needs to be 12.7 centimeters (5 inches) from the wall
-		mechRobot.moveForward(0, 250, 1); //sends time, speed, and distance buffer, 0 denotes infinite time
+		mechRobot.moveForward(0, 280, 5); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
 		//lower sensor claw into water source using servo
 		/*mechRobot.lowerSensor();

@@ -12,17 +12,17 @@ public class Mech {
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
 			r.setPort("/dev/tty.wch ch341 USB=>RS232 1420"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
+
+			r.setVerbose(true);
+
 			r.connect(); 
 		}
 		
 		//reads the ping sensor value
+		
 		public int checkDistance(){
-			int valTotal = 0;
-			for (int x = 0; x < 10; ++x) { 
-				valTotal += r.getPing(PING_PIN);
-				r.sleep(5); 
-			} 
-			return valTotal/10;  
+			return r.getPing(PING_PIN);
 		}
 		
 		/*rotates tracks forward
@@ -33,7 +33,7 @@ public class Mech {
 		 * returns nothing
 		 */
 		public void moveForward(int time, int speed, double distanceBuffer){
-			r.runMotor(RXTXRobot.MOTOR1, speed-28, RXTXRobot.MOTOR2, -speed, time);
+			r.runMotor(RXTXRobot.MOTOR1, speed-10, RXTXRobot.MOTOR2, -speed, time);
 			//get pingVal distance 
 			int pingVal = checkDistance(); 	
 			System.out.println(pingVal);

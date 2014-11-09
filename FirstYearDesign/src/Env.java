@@ -14,7 +14,8 @@ public class Env {
 		
 		public Env(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 1420"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1450"); 
+
 			r.connect(); 
 		}
 
