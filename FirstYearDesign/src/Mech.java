@@ -56,8 +56,15 @@ public class Mech {
 		 * returns nothing
 		 */
 		public void moveBackward(int time, int speed, double distanceBuffer ){ 
-			
-			r.runMotor(RXTXRobot.MOTOR1, speed, RXTXRobot.MOTOR2, -speed, time); 
+			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed-28, time);
+			//get pingVal distance 
+			int pingVal = checkDistance(); 	
+			System.out.println(pingVal);
+			//ping distance in centimeters
+			while(pingVal < distanceBuffer){ 		
+				pingVal = checkDistance();
+				System.out.println(pingVal);
+			}
 			 	
 		}
 		
@@ -89,14 +96,56 @@ public class Mech {
 			
 		}
 		
-		//moves arm to knock out even number of ping pong balls
-		public void dispensePingPongBalls(int numberFiftyBalls, int numberTenBalls){ 
+		//sets servo to angle 0
+		public void setServo(){
+			r.attachServo(RXTXRobot.SERVO1, 7);
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+		}
+		
+		//dispenses the 10 unit ping pong balls
+		public void dispenseTenBalls(int numberTenBalls){ 
 			
 			r.setVerbose(true); // Turn on debugging messages 
-			r.attachServo(RXTXRobot.SERVO1, 7); //Connect the servos to the Arduino 
-			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
-			r.sleep(10000);
-			r.close(); //this makes the servo go back to 90 degrees and dispensing another ping pong ball 
+			//r.attachServo(RXTXRobot.SERVO1, 7); //Connect the servos to the Arduino 
+			if(numberTenBalls / 2 == 0){ //dispense the 50 turbidity
+				for( int i = 0; i < numberTenBalls/2; i++){
+					r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+					r.sleep(1000);
+
+					r.moveServo(RXTXRobot.SERVO1, 180);
+					r.sleep(1000);
+				}
+			}else{
+				for( int i = 0; i < numberTenBalls/2; i++){
+					r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+					r.sleep(1000);
+					r.moveServo(RXTXRobot.SERVO1, 180);
+					r.sleep(1000);
+				}
+				r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+
+			}
+		}
+		
+		//dispenses the 50 unit balls
+		public void dispenseFiftyBalls(int numberFiftyBalls){ 
+			if(numberFiftyBalls / 2 == 0){ //dispense the 10 turbidity
+				for( int i = 0; i < numberFiftyBalls/2; i++){
+					r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+					r.sleep(1000);
+					r.moveServo(RXTXRobot.SERVO1, 180);
+					r.sleep(1000);
+				}
+			}else{
+				for( int i = 0; i < numberFiftyBalls/2; i++){
+					r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+					r.sleep(1000);
+					r.moveServo(RXTXRobot.SERVO1, 180);
+					r.sleep(1000);
+				}
+				r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+
+			}
 			
 		}	
 		

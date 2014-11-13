@@ -10,12 +10,18 @@ public class RunTime
 		Mech mechRobot = new Mech(); //creates a new Mechanical robot system
 		Env envRobot = new Env(); // creates a new Environmental robot system		
 		
+		//set servo to angle 0
+		//mechRobot.setServo();
+		
 		//find water
 		//use ping sensor to locate the distance to the wall, needs to be 12.7 centimeters (5 inches) from the wall
-		mechRobot.moveForward(0, 1, 30); //sends time, speed, and distance buffer, 0 denotes infinite time
+		//mechRobot.moveForward(0, 200, 23); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
+		//locate first station
+		mechRobot.moveBackward(0, 200, 60);
 		//swing arm to dispense ping pong ball
-		mechRobot.dispenseEven();
+		//mechRobot.turbidityMaterials(210);
+	
 		
 		//lower sensor claw into water source using servo
 		/*mechRobot.lowerSensor();
