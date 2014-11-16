@@ -2,8 +2,8 @@ import rxtxrobot.*;
 
 public class GetPing {
 	
-	//final private static int PING_PIN = 12; 
-	final private static int PING_PIN2 = 11; 
+	final private static int PING_PIN = 10; 
+	//final private static int PING_PIN2 = 11; 
 
 
 	public static void main(String[] args) 

@@ -7,7 +7,7 @@ import rxtxrobot.ArduinoNano;
 public class Mech {
 
 		RXTXRobot r;
-		final private static int PING_PIN = 11; 
+		final private static int PING_PIN = 10; 
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
@@ -33,7 +33,7 @@ public class Mech {
 		 * returns nothing
 		 */
 		public void moveForward(int time, int speed, double distanceBuffer){
-			r.runMotor(RXTXRobot.MOTOR1, speed-28, RXTXRobot.MOTOR2, -speed, time);
+			r.runMotor(RXTXRobot.MOTOR1, speed-15, RXTXRobot.MOTOR2, -speed-10, time);
 			//get pingVal distance 
 			int pingVal = checkDistance(); 	
 			System.out.println(pingVal);
@@ -43,6 +43,7 @@ public class Mech {
 				System.out.println(pingVal);
 			}
 			
+			r.sleep(2000);
 			//stop robot
 			r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
 			
@@ -56,7 +57,7 @@ public class Mech {
 		 * returns nothing
 		 */
 		public void moveBackward(int time, int speed, double distanceBuffer ){ 
-			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed-28, time);
+			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed+24, time);
 			//get pingVal distance 
 			int pingVal = checkDistance(); 	
 			System.out.println(pingVal);
@@ -65,21 +66,21 @@ public class Mech {
 				pingVal = checkDistance();
 				System.out.println(pingVal);
 			}
-			 	
+			 r.sleep(1500);	
 		}
 		
 		//turns robot right using ticks
 		public void turnRight(){ 
 			
-			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 160, RXTXRobot.MOTOR2, 255, 160); //speed, ticks
-			
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 200, 190, RXTXRobot.MOTOR2, 200, 180); //speed, ticks
+			r.sleep(1000);
 		}
 		
 		//turns robot left using ticks
 		public void turnLeft(){ 
 			
-			r.runEncodedMotor(RXTXRobot.MOTOR1, -255, 160, RXTXRobot.MOTOR2, -255, 160); //speed, ticks
-			
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -240, 170, RXTXRobot.MOTOR2, -240, 175); //speed, ticks
+			r.sleep(1000);
 		}
 		
 		//turns robot 180 degrees using ticks
