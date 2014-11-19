@@ -15,47 +15,55 @@ public class RunTime
 		
 		//find water
 		//use ping sensor to locate the distance to the wall, needs to be 12.7 centimeters (5 inches) from the wall
-		mechRobot.moveForward(0, 160, 35); //sends time, speed, and distance buffer, 0 denotes infinite time
+		mechRobot.moveForward(0, 180, 38); //sends time, speed, and distance buffer, 0 denotes infinite time
+		
+		//test water
+		//test water for salinity and turbidity
+		//envRobot.checkSalinity();
+		//envRobot.checkTurbidity();
 		
 		//locate first station
-		mechRobot.moveBackward(0, 160, 32);
+		mechRobot.moveBackward(0, 180, 23);
+		System.out.println("turn right");
 		mechRobot.turnRight();
-		mechRobot.moveForward(0, 160, 70);
+		System.out.println("move forward");
+		mechRobot.moveForward(0, 180, 50);
 		
 		//swing arm to dispense ping pong ball
 		//mechRobot.turbidityMaterials(210);
 	
 		//locate second station
-		/*mechRobot.moveBackward(0, 190, 35);
+		System.out.println("move backward");
+		mechRobot.moveBackward(0, 180, 40);
 		mechRobot.turnLeft();
-		mechRobot.moveBackward(0, 190, 60);
+		mechRobot.moveBackward(0, 180, 65);
 		mechRobot.turnRight();
-		mechRobot.moveForward(0, 190, 20);
-		//lower sensor claw into water source using servo
-		/*mechRobot.lowerSensor();
+		mechRobot.moveForward(0, 180, 50);	
 		
-		//test water for salinity and turbidity
-		envRobot.checkSalinity();
-		envRobot.checkTurbidity();
+		//locate third station
+		mechRobot.moveBackward(0, 180, 35);
+		mechRobot.turnLeft();
+		mechRobot.turnLeft();
+		mechRobot.moveForward(0, 180, 50);
+
 		
 		//raise sensor claw out of water source using servo
-		mechRobot.raiseSensor();
+		//mechRobot.raiseSensor();
 		
 		//analyze water source to determine what materials are needed (how many ping pong balls to dispense)
-		envRobot.checkSalinity();
-		envRobot.checkTurbidity();
+		//envRobot.checkSalinity();
+		//envRobot.checkTurbidity();
 			
 		//locate first ping pong ball station
-   		mechRobot.moveBackward(0, 255, 48.3);
+   		/*mechRobot.moveBackward(0, 255, 48);
 		mechRobot.turnLeft();
-		mechRobot.moveForward(0, 255, 12.7);
+		mechRobot.moveForward(0, 255, 12);
 		
 		//swing claw to knock out ping pong balls into bucket
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
 		
-		
 		//locate second ping pong ball station
-		mechRobot.moveBackward(0, 255, 21.3); //NEED TO MEASURE DISTANCE BUFFER
+		mechRobot.moveBackward(0, 255, 21); //NEED TO MEASURE DISTANCE BUFFER
 		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, 35); //need to determine distance between two stations
 		mechRobot.turnRight();
@@ -65,7 +73,7 @@ public class RunTime
 
 		
 		//locate third ping pong ball station
-		mechRobot.moveBackward(0, 255, 227.3);//NEED TO MEASURE DISTANCE BUFFER
+		mechRobot.moveBackward(0, 255, 227);//NEED TO MEASURE DISTANCE BUFFER
 		mechRobot.turnLeft();
 		mechRobot.moveForward(0, 255, distance); //need to determine distance between two stations
 		mechRobot.turnRight();
