@@ -8,6 +8,8 @@ public class Mech {
 
 		RXTXRobot r;
 		final private static int PING_PIN = 10; 
+		final private static int PING_PIN2 = 11; 
+
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
@@ -25,6 +27,10 @@ public class Mech {
 			return r.getPing(PING_PIN);
 		}
 		
+		public int checkDistance2(){
+			return r.getPing(PING_PIN2);
+		}
+		
 		/*rotates tracks forward
 		 * accepts following variables: 
 		 * int time: duration of run
@@ -32,6 +38,20 @@ public class Mech {
 		 * double distanceBuffer: distance from the wall
 		 * returns nothing
 		 */
+		
+		public void findBridge(int time, int speed, int distanceBuffer ){ 
+			r.runMotor(RXTXRobot.MOTOR1, -speed, RXTXRobot.MOTOR2, speed+20, time);
+			//get pingVal distance 
+			int pingVal = checkDistance2(); 	
+			System.out.println(pingVal);
+			//ping distance in centimeters
+			while(pingVal > distanceBuffer){ 		
+				pingVal = checkDistance2();
+				System.out.println(pingVal);
+			}
+			 r.sleep(1500);	
+		}
+		
 		public void moveForward(int time, int speed, double distanceBuffer){
 			r.runMotor(RXTXRobot.MOTOR1, speed-15, RXTXRobot.MOTOR2, -speed, time);
 			//get pingVal distance 
@@ -69,7 +89,7 @@ public class Mech {
 		//turns robot right using ticks
 		public void turnRight(){ 
 			
-			r.runEncodedMotor(RXTXRobot.MOTOR1, 200, 163, RXTXRobot.MOTOR2, 200, 180); //speed, ticks
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 200, 155, RXTXRobot.MOTOR2, 200, 180); //speed, ticks
 			r.sleep(1500);
 		}
 		
@@ -160,8 +180,7 @@ public class Mech {
 		}
 		
 		public void bothEncodedMotors(int numberTicks){
-			 
-			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, numberTicks, RXTXRobot.MOTOR2, 255, numberTicks); 
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 190, numberTicks, RXTXRobot.MOTOR2, -190, numberTicks); 
 			//90 ticks = 1 rotation
 		}
 		
