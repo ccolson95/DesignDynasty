@@ -14,7 +14,7 @@ public class RunTime
 		mechRobot.setServo();
 		mechRobot.setServo2();
 		
-		mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
+		/*mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
 		//test water
@@ -32,9 +32,9 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 43);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		
-		mechRobot.dispenseTenBalls(10);
-	
+		*/
+		mechRobot.determineTurbBalls(300);
+		/*
 		//locate second station
 		System.out.println("move backward");
 		mechRobot.moveBackward(0, 180, 40);
@@ -80,7 +80,7 @@ public class RunTime
 		
 		mechRobot.close(); //closing connection
 		//envRobot.close(); //closing connection
-
+*/
 	}
 	
 }	
