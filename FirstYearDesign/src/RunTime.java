@@ -33,7 +33,8 @@ public class RunTime
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
 		*/
-		mechRobot.determineTurbBalls(300);
+		mechRobot.dispenseTenBalls(310);
+		 
 		/*
 		//locate second station
 		System.out.println("move backward");

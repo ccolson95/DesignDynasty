@@ -10,30 +10,15 @@ public class Mech {
 		final private static int PING_PIN = 10; 
 		final private static int PING_PIN2 = 11; 
 
-		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
 			r.setPort("/dev/tty.wch ch341 USB=>RS232 410"); 
-			//r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
-
-			//r.setVerbose(true);
-
 			r.connect(); 
 		}
 		
 		//reads the ping sensor value
-		
-		
 		public int checkDistance(){
-
 			return r.getPing(PING_PIN);
-
-//			int valTotal = 0;
-//			for (int x = 0; x < 10; ++x) { 
-//				valTotal += r.getPing(PING_PIN);
-//			} 
-//			return valTotal/10;  
-
 		}
 		
 		public void sleep(){
