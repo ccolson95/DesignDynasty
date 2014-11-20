@@ -13,8 +13,8 @@ public class Mech {
 		
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 1450"); 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 410"); 
+			//r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
 
 			//r.setVerbose(true);
 
@@ -23,8 +23,21 @@ public class Mech {
 		
 		//reads the ping sensor value
 		
+		
 		public int checkDistance(){
+
 			return r.getPing(PING_PIN);
+
+//			int valTotal = 0;
+//			for (int x = 0; x < 10; ++x) { 
+//				valTotal += r.getPing(PING_PIN);
+//			} 
+//			return valTotal/10;  
+
+		}
+		
+		public void sleep(){
+			r.sleep(1500);
 		}
 		
 		public int checkDistance2(){
@@ -53,7 +66,7 @@ public class Mech {
 		}
 		
 		public void moveForward(int time, int speed, double distanceBuffer){
-			r.runMotor(RXTXRobot.MOTOR1, speed-15, RXTXRobot.MOTOR2, -speed, time);
+			r.runMotor(RXTXRobot.MOTOR1, speed-24, RXTXRobot.MOTOR2, -speed, time);
 			//get pingVal distance 
 			int pingVal = checkDistance(); 	
 			System.out.println(pingVal);
@@ -104,6 +117,7 @@ public class Mech {
 		public void turn180(){
 			
 			r.runEncodedMotor(RXTXRobot.MOTOR1, 255, 320, RXTXRobot.MOTOR2, 255, 320); //speed, ticks
+		r.sleep(1500);
 		}
 		
 		public void turbidityMaterials(int turbidityValue){ //calculates the number of turbidity ping pong balls needed
@@ -117,7 +131,17 @@ public class Mech {
 		//sets servo to angle 0
 		public void setServo(){
 			r.attachServo(RXTXRobot.SERVO1, 7);
-			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
+			//r.moveServo(RXTXRobot.SERVO1, 180); // Move Servo 1 to specified angle 
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle
+			//r.moveServo(RXTXRobot.SERVO1, 180); // Move Servo 1 to specified angle
+		}
+		
+		//sets ball servo to angle 0
+		public void setServo2(){
+			r.attachServo(RXTXRobot.SERVO2, 12);
+			//r.moveServo(RXTXRobot.SERVO1, 180); // Move Servo 1 to specified angle 
+			r.moveServo(RXTXRobot.SERVO2, 91); // Move Servo 1 to specified angle
+			//r.moveServo(RXTXRobot.SERVO1, 180); // Move Servo 1 to specified angle
 		}
 		
 		//dispenses the 10 unit ping pong balls
@@ -143,6 +167,10 @@ public class Mech {
 				r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle 
 
 			}
+		}
+		
+		public void stopMotors() {
+			r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2, 0, 0);
 		}
 		
 		//dispenses the 50 unit balls
@@ -186,6 +214,11 @@ public class Mech {
 		
 		public void close(){
 			r.close(); 
+		}
+
+		public void sleep(int i) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 		
