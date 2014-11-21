@@ -12,7 +12,7 @@ public class Mech {
 
 		public Mech(){
 			r = new ArduinoNano(); // Create RXTXRobot object 
-			r.setPort("/dev/tty.wch ch341 USB=>RS232 410"); 
+			r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
 			r.connect(); 
 		}
 		
@@ -108,11 +108,11 @@ public class Mech {
 		
 		//dispenses the 10 unit ping pong balls
 		public void dispenseSmallUnitBalls(double turbidityValue){ 
-			double numberBalls = (turbidityValue % 50) / 10;
+			double numberBalls = ((int)(turbidityValue % 50) / 10);
 			numberBalls *= 750;
 			
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
-			r.sleep(numberBalls);
+			r.sleep((int)numberBalls);
 			r.moveServo(RXTXRobot.SERVO1, 84); 
 			r.sleep(100);
 			r.close();
@@ -121,26 +121,35 @@ public class Mech {
 
 		//dispenses the 50 unit balls
 		public void dispenseLargeUnitBalls(double turbidityValue){ 
-			double numberBalls = turbidityValue / 50;
+			double numberBalls = (int)(turbidityValue / 50);
 			numberBalls *= 750;
 
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
-			r.sleep(numberBalls);
+			r.sleep((int)numberBalls);
 			r.moveServo(RXTXRobot.SERVO1, 84); 
 			r.sleep(100);
 			r.close();
 		}
 			
-		//sets servo to angle 0
-		public void setServo(){
+		//sets arm servo
+		public void setArmServo(){
 			r.attachServo(RXTXRobot.SERVO1, 7);
 				r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle
 		}
 		
-		//sets ball servo to angle 0
-		public void setServo2(){
+		//sets ball gate servo
+		public void setBallGateServo(){
 			r.attachServo(RXTXRobot.SERVO2, 12);
 			r.moveServo(RXTXRobot.SERVO2, 84); // Move Servo 1 to specified angle
+		}
+		
+		public void setSensorServo(){ //sensor servo
+			r.attachServo(RXTXRobot.SERVO3, 8);
+			r.moveServo(RXTXRobot.SERVO3, 90);
+		}
+		
+		public void setServo4(){
+			r.moveServo(RXTXRobot.SERVO3, 30);
 		}
 				
 		public void stopMotors() {
@@ -148,15 +157,18 @@ public class Mech {
 		}	
 		
 		public void lowerSensor(){
-			
-			//servo code
-			
+			for(int i=90; i>30; i--){
+				r.moveServo(RXTXRobot.SERVO3, i);	
+				r.sleep(20);
+			}
+		}
+		
+		public void lowerSensor2(){
+			r.moveServo(RXTXRobot.SERVO1, 30);
 		}
 		
 		public void raiseSensor(){
-			
-			//servo code
-			
+			r.moveServo(RXTXRobot.SERVO3, 90);
 		}
 		
 		public void bothEncodedMotors(int numberTicks){

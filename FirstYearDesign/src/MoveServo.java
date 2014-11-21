@@ -2,16 +2,13 @@ import rxtxrobot.*;
 
 public class MoveServo {
 	
-	public static void main(int numberTurns) 
+	public static void main(String [] args) 
 	{ 
 		RXTXRobot r = new ArduinoNano(); // Create RXTXRobot object 
-	 
-		r.moveServo(RXTXRobot.SERVO1, 84);
-		
-		r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
-		r.sleep(750);
-		
-		r.moveServo(RXTXRobot.SERVO1, 84); // Move Servo 1 to location 30 
+		r.setPort("/dev/tty.wch ch341 USB=>RS232 1410"); 
+		r.connect();
+		r.attachServo(RXTXRobot.SERVO1, 8);
+		r.moveServo(RXTXRobot.SERVO1, 30);
 		
 		r.sleep(1000);
 		r.close();

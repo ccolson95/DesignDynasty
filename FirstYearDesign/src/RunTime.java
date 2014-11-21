@@ -11,19 +11,27 @@ public class RunTime
 		Env envRobot = new Env(); // creates a new Environmental robot system		
 		
 		//set servo to angle 0
-		mechRobot.setServo();
-		mechRobot.setServo2();
+		mechRobot.setArmServo();
+		mechRobot.setBallGateServo();
+		mechRobot.setSensorServo();
 		
 		mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
+		mechRobot.lowerSensor();
+		mechRobot.sleep();
+		mechRobot.raiseSensor();
+		
 		//find water
 		//use ping sensor to locate the distance to the wall
-		mechRobot.moveForward(0, 180, 38); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
-		//test water		
+		//test water	
+		/*mechRobot.lowerSensor();
+		mechRobot.sleep();
+		mechRobot.raiseSensor();
 		double salinity = envRobot.checkSalinity();
 		double turbidity = envRobot.checkTurbidity();
+		*/
 		
 		//locate first station
 		mechRobot.moveBackward(0, 180, 20);
@@ -35,7 +43,7 @@ public class RunTime
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
 		
-		mechRobot.dispenseSmallUnitBalls(turbidity);
+		mechRobot.dispenseSmallUnitBalls(310);
 		 
 		
 		//locate second station
@@ -47,7 +55,7 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 49);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseLargeUnitBalls(9);
+		mechRobot.dispenseLargeUnitBalls(300);
 		
 		//locate third station
 		mechRobot.moveBackward(0, 180, 35);
@@ -56,7 +64,7 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 45);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseSmallUnitBalls(10);
+		mechRobot.dispenseLargeUnitBalls(330);
 		
 		//locate fourth station
 		mechRobot.moveBackward(0, 180, 35);
@@ -66,38 +74,21 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 45);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseTenBalls(10);
+		mechRobot.dispenseSmallUnitBalls(320);
 
-		*/
 		//find bridge
-		//mechRobot.findBridge(0, 150, 65);
-		//mechRobot.turnLeft();
-		mechRobot.moveForward(0, 200, 200);
-		
-		
-		//swing claw to knock out ping pong balls into bucket
-		//use if statements to choose between using dispenseEven or dispenseOdd functions
-		
-		
-		//mechRobot.turn180();
->>>>>>> Stashed changes
-		
-		//locate bridge
-		mechRobot.moveBackward(0, 180, 40);
-		mechRobot.turnRight();
-		mechRobot.moveBackward(0, 180, 60);
+		mechRobot.moveBackward(0, 180, 35);
 		mechRobot.turnLeft();
-		mechRobot.sleep(1500);
-		mechRobot.stopMotors();
+		mechRobot.moveBackward(0, 180, 65);
+		mechRobot.turnLeft();
 		mechRobot.findBridge(0, 150, 65);
+		mechRobot.turnLeft();
+		mechRobot.moveForward(0, 200, 70);
 
-		//System.out.println(envRobot.getConductivity()); //SALINITY 
-		
-		//System.out.println(envRobot.testWaterTurbidity()); //TURBIDITY
 		
 		mechRobot.close(); //closing connection
 		//envRobot.close(); //closing connection
-*/
+
 	}
 	
 }	
