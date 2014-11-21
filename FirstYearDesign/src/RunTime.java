@@ -8,20 +8,22 @@ public class RunTime
 	public static void main(String[] args){
 
 		Mech mechRobot = new Mech(); //creates a new Mechanical robot system
-		//Env envRobot = new Env(); // creates a new Environmental robot system		
+		Env envRobot = new Env(); // creates a new Environmental robot system		
 		
 		//set servo to angle 0
 		mechRobot.setServo();
 		mechRobot.setServo2();
 		
-		/*mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
+		mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		//test water
-		//test water for salinity and turbidity
+		//find water
+		//use ping sensor to locate the distance to the wall
+		mechRobot.moveForward(0, 180, 38); //sends time, speed, and distance buffer, 0 denotes infinite time
 		
-		//envRobot.checkSalinity();
-		//envRobot.checkTurbidity();
+		//test water		
+		double salinity = envRobot.checkSalinity();
+		double turbidity = envRobot.checkTurbidity();
 		
 		//locate first station
 		mechRobot.moveBackward(0, 180, 20);
@@ -32,10 +34,10 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 43);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		*/
-		mechRobot.dispenseTenBalls(310);
+		
+		mechRobot.dispenseSmallUnitBalls(turbidity);
 		 
-		/*
+		
 		//locate second station
 		System.out.println("move backward");
 		mechRobot.moveBackward(0, 180, 40);
@@ -45,7 +47,7 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 49);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseTenBalls(10);
+		mechRobot.dispenseLargeUnitBalls(9);
 		
 		//locate third station
 		mechRobot.moveBackward(0, 180, 35);
@@ -54,7 +56,7 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 45);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseTenBalls(10);
+		mechRobot.dispenseSmallUnitBalls(10);
 		
 		//locate fourth station
 		mechRobot.moveBackward(0, 180, 35);
@@ -65,6 +67,20 @@ public class RunTime
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
 		mechRobot.dispenseTenBalls(10);
+
+		*/
+		//find bridge
+		//mechRobot.findBridge(0, 150, 65);
+		//mechRobot.turnLeft();
+		mechRobot.moveForward(0, 200, 200);
+		
+		
+		//swing claw to knock out ping pong balls into bucket
+		//use if statements to choose between using dispenseEven or dispenseOdd functions
+		
+		
+		//mechRobot.turn180();
+>>>>>>> Stashed changes
 		
 		//locate bridge
 		mechRobot.moveBackward(0, 180, 40);

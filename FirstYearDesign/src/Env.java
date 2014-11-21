@@ -19,36 +19,23 @@ public class Env {
 			r.connect(); 
 		}
 
-		public void checkTurbidity(){
+		public double checkTurbidity(){
 	
-			for (int x=0; x <= 10 ; ++x) 
-			{ 
-				AnalogPin temp = r.getAnalogPin(1); 
-				r.sleep(100);
-				r.refreshAnalogPins(); // Cache the Analog pin information 
-				System.out.println("Sensor " + x + " has value: " + temp.getValue());  //prints voltage
-			} 
-			double turbidityPingPongBalls = determineTurbidityMaterials(); //gets the value to determine how many ping pong balls we need
+			double y = 0.0;
+			int temp = r.getAnalogPin(3).getValue(); 
+			r.sleep(100);
+			r.refreshAnalogPins(); // Cache the Analog pin information 
+			System.out.println("Sensor has value: " + temp);  //prints voltage
+			y = -0.6612 * temp + 640.94;
+			return y;
 		}
 	
-		public void checkSalinity(){
-			
-			for (int x=0; x <= 10 ; ++x) 
-			{ 
-				AnalogPin temp = r.getAnalogPin(1); 
-				r.sleep(100);
-				r.refreshAnalogPins(); // Cache the Analog pin information 
-				System.out.println("Sensor " + x + " has value: " + temp.getValue());  //prints voltage
-			}
-			double salinityPingPongBalls = determineSalinityMaterials(); //gets the value to determine how many ping pong balls we need
-		}
-		
-		public double determineTurbidityMaterials(){ //conver
-			return 0; //this will return the turbidity value
-		}
-		
-		public double determineSalinityMaterials(){
-			return 0; //this will return the salinity value
+		public double checkSalinity(){
+			double x = r.getConductivity();
+			double y = 0.9352*x + 79.848;
+			double z = (4.826/(y*8.82))*1000000;
+			double w = 2.0534*z -1545.8;
+			return w;
 		}
 		
 		public void close(){

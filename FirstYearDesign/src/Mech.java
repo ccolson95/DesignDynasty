@@ -107,8 +107,8 @@ public class Mech {
 		
 		
 		//dispenses the 10 unit ping pong balls
-		public void dispenseTenBalls(int turbidityValue){ 
-			int numberBalls = (turbidityValue % 50) / 10;
+		public void dispenseSmallUnitBalls(double turbidityValue){ 
+			double numberBalls = (turbidityValue % 50) / 10;
 			numberBalls *= 750;
 			
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
@@ -120,8 +120,8 @@ public class Mech {
 		
 
 		//dispenses the 50 unit balls
-		public void dispenseFiftyBalls(int turbidityValue){ 
-			int numberBalls = turbidityValue / 50;
+		public void dispenseLargeUnitBalls(double turbidityValue){ 
+			double numberBalls = turbidityValue / 50;
 			numberBalls *= 750;
 
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
@@ -168,7 +168,7 @@ public class Mech {
 			r.close(); 
 		}
 
-		public void sleep(int i) {
+		public void sleep(double i) {
 			// TODO Auto-generated method stub
 			
 		}
