@@ -1,6 +1,4 @@
-import java.awt.Robot;
 
-import rxtxrobot.RXTXRobot;
 
 public class RunTime 
 {
@@ -10,33 +8,40 @@ public class RunTime
 		Mech mechRobot = new Mech(); //creates a new Mechanical robot system
 		Env envRobot = new Env(); // creates a new Environmental robot system		
 		
+		for(int i = 0; i < 300; i++){
+			System.out.println("PING: " + mechRobot.checkDistance2() + ", PING2: " + mechRobot.checkDistance());
+		}
+		
 		//set servo to angle 0
-		mechRobot.setServo();
-		mechRobot.setServo2();
-		
-		mechRobot.moveForward(0, 180, 34); //sends time, speed, and distance buffer, 0 denotes infinite time
-		mechRobot.sleep(1500);
-		mechRobot.stopMotors();
-		//find water
-		//use ping sensor to locate the distance to the wall
-		mechRobot.moveForward(0, 180, 38); //sends time, speed, and distance buffer, 0 denotes infinite time
-		
-		//test water		
+		/*mechRobot.setServo();
+        mechRobot.setServo2();
+		mechRobot.setServo3();
+//		
+//		//find water
+	mechRobot.moveForward(0, 180, 36); //sends time, speed, and distance buffer, 0 denotes infinite time
+	mechRobot.sleep(1000);
+	mechRobot.stopMotors();
+//mechRobot.
+
+		//test water
+		//mechRobot.lowerSensor();
+		//mechRobot.sleep(15000);
 		double salinity = envRobot.checkSalinity();
 		double turbidity = envRobot.checkTurbidity();
-		
-		//locate first station
-		mechRobot.moveBackward(0, 180, 20);
-		System.out.println("turn right");
-		mechRobot.turnRight();
-		System.out.println("move forward");
-		
-		mechRobot.moveForward(0, 180, 43);
-		mechRobot.sleep(1500);
+		//mechRobot.raiseSensor();
+//		
+//		//locate first station
+mechRobot.moveBackward(0, 180, 20);
 		mechRobot.stopMotors();
+		mechRobot.setServo4();
+		//System.out.println("turn right");
+		mechRobot.turnRight();
+		//System.out.println("move forward");		
+	mechRobot.moveForward(0, 180, 65);
+	mechRobot.sleep(1500);
+	mechRobot.stopMotors();
 		
-		mechRobot.dispenseSmallUnitBalls(turbidity);
-		 
+		mechRobot.dispenseSmallUnitBalls(310);
 		
 		//locate second station
 		System.out.println("move backward");
@@ -44,10 +49,10 @@ public class RunTime
 		mechRobot.turnLeft();
 		mechRobot.moveBackward(0, 180, 70);
 		mechRobot.turnRight();
-		mechRobot.moveForward(0, 180, 49);
+		mechRobot.moveForward(0, 180, 65);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseLargeUnitBalls(9);
+		mechRobot.dispenseLargeUnitBalls(300);
 		
 		//locate third station
 		mechRobot.moveBackward(0, 180, 35);
@@ -66,9 +71,9 @@ public class RunTime
 		mechRobot.moveForward(0, 180, 45);
 		mechRobot.sleep(1500);
 		mechRobot.stopMotors();
-		mechRobot.dispenseTenBalls(10);
+		mechRobot.dispenseSmallUnitBalls(10);
 
-		*/
+
 		//find bridge
 		//mechRobot.findBridge(0, 150, 65);
 		//mechRobot.turnLeft();
@@ -77,11 +82,7 @@ public class RunTime
 		
 		//swing claw to knock out ping pong balls into bucket
 		//use if statements to choose between using dispenseEven or dispenseOdd functions
-		
-		
-		//mechRobot.turn180();
->>>>>>> Stashed changes
-		
+			
 		//locate bridge
 		mechRobot.moveBackward(0, 180, 40);
 		mechRobot.turnRight();
@@ -96,8 +97,8 @@ public class RunTime
 		//System.out.println(envRobot.testWaterTurbidity()); //TURBIDITY
 		
 		mechRobot.close(); //closing connection
-		//envRobot.close(); //closing connection
-*/
+		envRobot.close(); //closing connection*/
+
 	}
 	
 }	
