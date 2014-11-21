@@ -21,8 +21,8 @@ public class Mech {
 			return r.getPing(PING_PIN);
 		}
 		
-		public void sleep(){
-			r.sleep(1500);
+		public void sleep(double i){
+			r.sleep((int) i);
 		}
 		
 		public int checkDistance2(){
@@ -108,7 +108,12 @@ public class Mech {
 		
 		//dispenses the 10 unit ping pong balls
 		public void dispenseSmallUnitBalls(double turbidityValue){ 
+<<<<<<< HEAD
 			double numberBalls = ((int)(turbidityValue % 50) / 10);
+=======
+
+			int numberBalls = (int)((turbidityValue % 50) / 10);
+>>>>>>> FETCH_HEAD
 			numberBalls *= 750;
 			
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
@@ -121,7 +126,11 @@ public class Mech {
 
 		//dispenses the 50 unit balls
 		public void dispenseLargeUnitBalls(double turbidityValue){ 
+<<<<<<< HEAD
 			double numberBalls = (int)(turbidityValue / 50);
+=======
+			int numberBalls = (int)(turbidityValue / 50);
+>>>>>>> FETCH_HEAD
 			numberBalls *= 750;
 
 			r.moveServo(RXTXRobot.SERVO1, 30); // Move Servo 1 to location 30 
@@ -134,7 +143,7 @@ public class Mech {
 		//sets arm servo
 		public void setArmServo(){
 			r.attachServo(RXTXRobot.SERVO1, 7);
-				r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle
+			r.moveServo(RXTXRobot.SERVO1, 0); // Move Servo 1 to specified angle
 		}
 		
 		//sets ball gate servo
@@ -142,6 +151,7 @@ public class Mech {
 			r.attachServo(RXTXRobot.SERVO2, 12);
 			r.moveServo(RXTXRobot.SERVO2, 84); // Move Servo 1 to specified angle
 		}
+<<<<<<< HEAD
 		
 		public void setSensorServo(){ //sensor servo
 			r.attachServo(RXTXRobot.SERVO3, 8);
@@ -150,6 +160,17 @@ public class Mech {
 		
 		public void setServo4(){
 			r.moveServo(RXTXRobot.SERVO3, 30);
+=======
+			
+		//sets sensor servo to angle 0
+		public void setServo3(){
+			r.attachServo(RXTXRobot.SERVO3, 8);
+			r.moveServo(RXTXRobot.SERVO3, 90); // Move Servo 3 to specified angle
+		}
+		
+		public void setServo4(){
+			r.moveServo(RXTXRobot.SERVO3, 30); // Move Servo 3 to specified angle
+>>>>>>> FETCH_HEAD
 		}
 				
 		public void stopMotors() {
@@ -157,6 +178,7 @@ public class Mech {
 		}	
 		
 		public void lowerSensor(){
+<<<<<<< HEAD
 			for(int i=90; i>30; i--){
 				r.moveServo(RXTXRobot.SERVO3, i);	
 				r.sleep(20);
@@ -169,6 +191,15 @@ public class Mech {
 		
 		public void raiseSensor(){
 			r.moveServo(RXTXRobot.SERVO3, 90);
+=======
+			r.moveServo(RXTXRobot.SERVO3, 30); // Move Servo 3 to specified angle
+		}
+		
+		public void raiseSensor(){
+			
+			r.moveServo(RXTXRobot.SERVO3, 90); // Move Servo 3 to specified angle
+			
+>>>>>>> FETCH_HEAD
 		}
 		
 		public void bothEncodedMotors(int numberTicks){
@@ -180,10 +211,6 @@ public class Mech {
 			r.close(); 
 		}
 
-		public void sleep(double i) {
-			// TODO Auto-generated method stub
-			
-		}
 		
 		
 }

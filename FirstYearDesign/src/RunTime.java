@@ -35,6 +35,7 @@ public class RunTime
 		
 		//locate first station
 		mechRobot.moveBackward(0, 180, 20);
+		mechRobot.lowerSensor2();
 		System.out.println("turn right");
 		mechRobot.turnRight();
 		System.out.println("move forward");
